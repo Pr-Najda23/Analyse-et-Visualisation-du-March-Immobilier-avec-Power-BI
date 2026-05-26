@@ -1,66 +1,63 @@
 🏠 Darkom.ma — Data Engineering & BI Pipeline
 
-Pipeline décisionnel complet pour l’analyse du marché immobilier marocain à partir des annonces Darkom.ma.
+📊 Pipeline décisionnel complet pour l’analyse du marché immobilier marocain
 
-📊 Aperçu du Projet
+📚 Aperçu du Projet
 
-Ce projet consiste à construire une architecture BI complète permettant de transformer des données immobilières brutes en dashboards interactifs Power BI.
+Ce projet consiste à concevoir une architecture BI complète permettant de transformer des données immobilières brutes issues de Darkom.ma en tableaux de bord interactifs avec Power BI.
 
-Architecture utilisée :
+L’objectif principal est de construire un pipeline ETL industriel allant du chargement des données jusqu’à la visualisation décisionnelle.
 
-CSV Source
-    ↓
-Staging Layer
-    ↓
-Clean Layer
-    ↓
-Data Warehouse (Star Schema)
-    ↓
-Power BI Dashboards
+🏗️ Architecture du Pipeline
+       Source CSV
+            ↓
+     Staging Layer
+            ↓
+      Clean Layer
+            ↓
+ Data Warehouse (BI)
+            ↓
+      Power BI
 🎯 Objectifs du Projet
 
-Le projet permet de :
+✔ Construire un pipeline ETL complet
+✔ Nettoyer et transformer les données immobilières
+✔ Concevoir un Data Warehouse optimisé
+✔ Développer des KPIs métiers avancés
+✔ Créer des dashboards interactifs Power BI
+✔ Analyser le marché immobilier marocain
 
-Construire un pipeline ETL industriel
-Nettoyer et transformer les données immobilières
-Concevoir un Data Warehouse optimisé
-Créer des KPIs métiers avancés
-Développer des dashboards interactifs Power BI
-Analyser le marché immobilier marocain
-🧱 Architecture du Projet
+🧱 Structure du Projet
 darkom_project/
 │
 ├── data/
 │   ├── raw/
-│   ├── clean/
+│   └── clean/
 │
 ├── logs/
 │
 ├── scripts/
 │   ├── staging/
 │   ├── cleaning/
-│   ├── warehouse/
+│   └── warehouse/
 │
 ├── sql/
 │
 ├── dashboards/
 │
 ├── README.md
-│
 └── requirements.txt
-🗄️ Technologies Utilisées
-Technologie	Rôle
-Python	ETL & Data Cleaning
+🛠️ Technologies Utilisées
+Technologie	Utilisation
+Python	Pipeline ETL
+Pandas	Nettoyage des données
 PostgreSQL	Data Warehouse
-SQLAlchemy	Connexion DB
-Pandas	Manipulation des données
-Power BI	Visualisation
-Power Query	Préparation BI
-DAX	Mesures avancées
+SQLAlchemy	Connexion PostgreSQL
+Power BI	Data Visualisation
+Power Query	Préparation des données
+DAX	KPIs & Mesures
 📥 Source des Données
-
-Fichier source :
-
+Fichier utilisé
 darkom_annonces.csv
 Colonnes disponibles
 Colonne	Description
@@ -69,56 +66,65 @@ date_publication	Date de publication
 titre	Titre annonce
 ville	Ville
 quartier	Quartier
-type_bien	Appartement, Villa...
+type_bien	Appartement, Villa, Terrain...
 transaction	Vente / Location
 prix	Prix en MAD
-surface	Surface m²
-nb_chambres	Nombre chambres
-nb_salles_bain	Nombre salles de bain
-etage	Numéro étage
-annee_construction	Année construction
+surface	Surface en m²
+nb_chambres	Nombre de chambres
+nb_salles_bain	Nombre de salles de bain
+etage	Numéro d’étage
+annee_construction	Année de construction
 ⚙️ Pipeline ETL
 1️⃣ Staging Layer
 
-Objectif :
+Cette couche sert de zone temporaire pour le chargement brut des données.
 
-Import brut du CSV
+Actions réalisées
+Import du fichier CSV vers PostgreSQL
 Vérification du chargement
-Gestion des logs
-Zone temporaire avant transformation
-
-Actions réalisées :
-
-✔ Import PostgreSQL
-✔ Contrôle d’intégrité
-✔ Logging ETL
-✔ Validation des colonnes
-
+Gestion des logs ETL
+Contrôle d’intégrité des colonnes
 🧹 2️⃣ Clean Layer
-Nettoyage des données
-Suppression des doublons
-Gestion des valeurs manquantes
-Correction des types
-Standardisation des villes
+
+Cette étape permet de nettoyer et standardiser les données.
+
+Nettoyage effectué
+✔ Suppression des doublons
+✔ Gestion des valeurs manquantes
+quartier
+nb_chambres
+nb_salles_bain
+etage
+annee_construction
+✔ Standardisation des données
+Uniformisation des villes
 Harmonisation des transactions
-Traitement des valeurs aberrantes
-Variables créées
-Feature Engineering	Description
+Normalisation des types de biens
+✔ Traitement des valeurs aberrantes
+prix
+surface
+nb_chambres
+✔ Correction des types de données
+Conversion DATE
+Types numériques
+Contrôle cohérence
+🧠 Feature Engineering
+
+Création de nouvelles variables analytiques :
+
+Feature	Description
 prix_m2	Prix par m²
-age_bien	Âge estimé
+age_bien	Âge du bien
 categorie_prix	Économique / Luxe
 categorie_surface	Petit / Moyen / Grand
-annee_publication	Dimension temporelle
+annee_publication	Analyse temporelle
 trimestre_publication	Analyse saisonnière
-🏛️ 3️⃣ Data Warehouse
+🏛️ Data Warehouse
 
-Le Data Warehouse est construit dans :
+Le Data Warehouse est stocké dans :
 
 bi_schema
-Modèle utilisé
-
-⭐ Star Schema
-
+⭐ Modèle utilisé : Star Schema
 Tables de dimensions
 dim_date
 dim_localisation
@@ -126,7 +132,7 @@ dim_bien
 dim_transaction
 Table de faits
 fact_annonces
-🔗 Relations du Modèle
+🔗 Modèle Relationnel
 dim_date --------|
                   |
 dim_localisation -|---- fact_annonces
@@ -136,16 +142,16 @@ dim_bien ---------|
 dim_transaction --|
 📈 KPIs Développés
 KPI	Description
-Nombre total d'annonces	Volume global
-Prix moyen	Prix moyen marché
+Nombre total d’annonces	Volume global
+Prix moyen	Prix moyen du marché
 Prix moyen par m²	Valeur immobilière
 Surface moyenne	Taille moyenne
-Croissance annonces	Évolution temporelle
-Répartition des biens	Analyse catégories
+Croissance des annonces	Évolution temporelle
+Répartition des biens	Analyse des catégories
 📊 Dashboards Power BI
 🌍 Dashboard 1 — Vue Globale
-Nombre total d'annonces
-Prix moyen marché
+Nombre total d’annonces
+Prix moyen du marché
 Surface moyenne
 Répartition par ville
 KPIs interactifs
@@ -153,24 +159,24 @@ Répartition Vente vs Location
 💰 Dashboard 2 — Analyse des Prix
 Distribution des prix
 Prix moyen par m²
-Segments immobiliers
-Analyse par catégorie
-Comparaison des types de biens
+Analyse des segments immobiliers
+Prix par type de bien
+Analyse par catégorie de prix
 📍 Dashboard 3 — Analyse Géographique
-Carte géographique
-Classement des villes
-Top quartiers
-Zones les plus chères
-Répartition régionale
+Répartition géographique
+Carte des prix immobiliers
+Top villes les plus chères
+Analyse des quartiers
+Classement des zones
 📉 Dashboard 4 — Analyse des Tendances
 Évolution des prix
 Volume des annonces
 Analyse saisonnière
 Comparaison N vs N-1
-Tendances marché immobilier
+Tendances du marché
 🎛️ Filtres Dynamiques
 
-Tous les dashboards contiennent des slicers interactifs :
+Les dashboards intègrent des slicers interactifs :
 
 Ville
 Type de bien
@@ -180,19 +186,19 @@ Prix
 Période
 🔍 Validation des Données
 
-Contrôles effectués :
+Contrôles réalisés :
 
-✔ Cohérence du warehouse
-✔ Intégrité des relations
-✔ Validation des types
-✔ Contrôle qualité
-✔ Vérification Power BI
+✔ Cohérence du Data Warehouse
+✔ Validation des relations
+✔ Contrôle qualité des données
+✔ Vérification des types
+✔ Validation Power BI
 
-📊 Résultat Final
+🚀 Résultat Final
 
-Le projet produit :
+Le projet permet d’obtenir :
 
-✅ Pipeline ETL complet
+✅ Pipeline ETL industriel
 ✅ Data Warehouse optimisé
 ✅ Dashboards Power BI interactifs
 ✅ Analyse complète du marché immobilier marocain
