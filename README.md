@@ -1,75 +1,81 @@
-🏠 Real Estate BI Analytics — Power BI Project
-📌 Project Overview
+# 🏠 Real Estate BI Analytics — Power BI Project
 
-This project focuses on building interactive Power BI dashboards to analyze the Moroccan real estate market using data collected from Avito.ma.
+## 📌 Overview
 
-The Data Warehouse is organized into two schemas:
+This project focuses on building interactive Power BI dashboards to analyze the Moroccan real estate market using data from Avito.ma.
 
-bi_schema → Used for Business Intelligence and reporting
-ml_schema → Reserved for Machine Learning (not used in this project)
+The Data Warehouse contains two schemas:
 
-This project uses only the BI layer to create dynamic and analytical dashboards.
+- **bi_schema** → Business Intelligence (used in this project)
+- **ml_schema** → Machine Learning (not used here)
 
-🎯 Objectives
-Connect Power BI to the Data Warehouse
-Import tables from bi_schema
-Prepare data using Power Query
-Create KPIs and measures with DAX
-Build interactive dashboards for real estate analysis
+👉 Only `bi_schema` is used for reporting and analysis.
 
-📊 Dashboards
-Dashboard 1 — Global Market Overview
-Total listings
-Average price
-Listings by city
-Market evolution
+---
 
-Dashboard 2 — Price Analysis
-Price distribution
-Average price per m²
-Segment comparison
+## 🎯 Objectives
 
-Dashboard 3 — Geographic Analysis
-Listings by city
-Geographic price visualization
-Most expensive areas
+- Connect Power BI to the Data Warehouse
+- Import data from `bi_schema`
+- Clean and transform data using Power Query
+- Create KPIs using DAX
+- Build interactive dashboards for market analysis
 
-Dashboard 4 — Trend Analysis
-Price evolution
-Listings evolution
-Seasonal trends
+---
 
-🎛️ Interactive Filters
-City
-Property type
-Price range
-Surface
-Period\
+## 📊 Dashboards
 
-🛠️ Technologies Used
-Power BI
-Power Query
-DAX
-PostgreSQL
-SQL
-Python
+### 1️⃣ Global Market Overview
+- Total listings
+- Average price
+- Listings by city
+- Market evolution over time
 
-🏗️ Data Warehouse Structure
-bi_schema
-│
-├── fact_annonces
-├── dim_ville
-├── dim_date
-├── dim_type_bien
-└── dim_surface
+### 2️⃣ Price Analysis
+- Price distribution
+- Average price per m²
+- Segment comparison
 
-🚀 Workflow
-Data Collection
-      ↓
-ETL Pipeline
-      ↓
-Data Warehouse
-      ↓
-Power BI
-      ↓
-Dashboards & KPIs
+### 3️⃣ Geographic Analysis
+- Listings by city
+- Map visualization
+- Most expensive areas
+
+### 4️⃣ Trend Analysis
+- Price evolution
+- Listings evolution
+- Seasonal trends
+
+---
+
+## 🎛️ Filters
+
+- City
+- Property type
+- Price range
+- Surface
+- Date
+
+👉 All visuals are interactive.
+
+---
+
+## 🛠️ Tools
+
+- Power BI
+- Power Query
+- DAX
+- SQL (PostgreSQL)
+- Python (ETL)
+
+---
+
+## 🔁 Workflow
+
+Data → ETL (Python) → Data Warehouse → Power BI → Dashboards
+
+---
+
+## 👨‍💻 Author
+
+BI Project — Moroccan Real Estate Analytics
