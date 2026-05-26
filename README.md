@@ -122,12 +122,3 @@ ANALYSE ET VISUALISATION D.../
 
 ---
 
-## 👤 Auteur
-
-Projet réalisé dans le cadre d'une analyse du marché immobilier marocain.
-
----
-
-## 📄 Licence
-
-Ce projet est à usage personnel et éducatif.
