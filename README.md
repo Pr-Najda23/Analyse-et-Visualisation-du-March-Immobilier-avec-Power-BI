@@ -1,81 +1,54 @@
-# 🏠 Real Estate BI Analytics — Power BI Project
+🏠 Projet BI — Analyse Immobilière (Power BI)
+📌 Présentation
 
-## 📌 Overview
+Ce projet consiste à développer des tableaux de bord interactifs sous Power BI afin d’analyser le marché immobilier marocain à partir de données extraites de Avito.ma.
 
-This project focuses on building interactive Power BI dashboards to analyze the Moroccan real estate market using data from Avito.ma.
+Le Data Warehouse est organisé en deux schémas :
 
-The Data Warehouse contains two schemas:
+bi_schema → utilisé pour la Business Intelligence (ce projet)
+ml_schema → destiné au Machine Learning (non utilisé ici)
 
-- **bi_schema** → Business Intelligence (used in this project)
-- **ml_schema** → Machine Learning (not used here)
+👉 Seul le schéma bi_schema est exploité pour l’analyse et le reporting.
 
-👉 Only `bi_schema` is used for reporting and analysis.
+🎯 Objectifs
+Connexion de Power BI au Data Warehouse
+Importation des données depuis bi_schema
+Nettoyage et transformation via Power Query
+Création de KPI avec DAX
+Conception de dashboards interactifs pour l’analyse du marché immobilier
+📊 Tableaux de bord
+1️⃣ Vue globale du marché
+Nombre total d’annonces
+Prix moyen
+Répartition des annonces par ville
+Évolution du marché dans le temps
+2️⃣ Analyse des prix
+Distribution des prix
+Prix moyen au m²
+Comparaison par segment
+3️⃣ Analyse géographique
+Répartition des annonces par ville
+Visualisation sur carte
+Zones les plus chères
+4️⃣ Analyse des tendances
+Évolution des prix
+Évolution du volume d’annonces
+Tendances saisonnières
+🎛️ Filtres disponibles
+Ville
+Type de bien
+Fourchette de prix
+Surface
+Date
 
----
+👉 Tous les visuels sont interactifs et dynamiques.
 
-## 🎯 Objectives
+🛠️ Technologies utilisées
+Power BI
+Power Query
+DAX (Data Analysis Expressions)
+SQL (PostgreSQL)
+Python (ETL & Data Pipeline)
+🔁 Pipeline du projet
 
-- Connect Power BI to the Data Warehouse
-- Import data from `bi_schema`
-- Clean and transform data using Power Query
-- Create KPIs using DAX
-- Build interactive dashboards for market analysis
-
----
-
-## 📊 Dashboards
-
-### 1️⃣ Global Market Overview
-- Total listings
-- Average price
-- Listings by city
-- Market evolution over time
-
-### 2️⃣ Price Analysis
-- Price distribution
-- Average price per m²
-- Segment comparison
-
-### 3️⃣ Geographic Analysis
-- Listings by city
-- Map visualization
-- Most expensive areas
-
-### 4️⃣ Trend Analysis
-- Price evolution
-- Listings evolution
-- Seasonal trends
-
----
-
-## 🎛️ Filters
-
-- City
-- Property type
-- Price range
-- Surface
-- Date
-
-👉 All visuals are interactive.
-
----
-
-## 🛠️ Tools
-
-- Power BI
-- Power Query
-- DAX
-- SQL (PostgreSQL)
-- Python (ETL)
-
----
-
-## 🔁 Workflow
-
-Data → ETL (Python) → Data Warehouse → Power BI → Dashboards
-
----
-
-## 👨‍💻 Author
-
-BI Project — Moroccan Real Estate Analytics
+Données → ETL (Python) → Data Warehouse → Power BI → Dashboards
