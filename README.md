@@ -44,7 +44,8 @@ City
 Property type
 Price range
 Surface
-Period
+Period\
+
 🛠️ Technologies Used
 Power BI
 Power Query
@@ -52,6 +53,7 @@ DAX
 PostgreSQL
 SQL
 Python
+
 🏗️ Data Warehouse Structure
 bi_schema
 │
